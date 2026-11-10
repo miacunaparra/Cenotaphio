@@ -55,7 +55,7 @@ let colaRespaldo = Promise.resolve();
 
 let actual = {}, modo = leer('memento.modo') || 'constelacion', uniendo = false, seleccion = null;
 
-const perfilesVisibles = () => [...(estado?.perfiles || []), ...referencias];
+const perfilesVisibles = () => estado?.perfiles || [];
 const perfilValido = p => p && typeof p.id === 'string' && typeof p.nombre === 'string'
   && Array.isArray(p.objetos) && p.objetos.every(o => o && typeof o.id === 'string')
   && Array.isArray(p.conexiones) && p.conexiones.every(c => c && typeof c.a === 'string' && typeof c.b === 'string');
@@ -254,9 +254,14 @@ function render(nueva) {
 
 function pintarColeccion() {
   const lista = $('#perfiles');
-  $('.perfil-tarjeta.nueva', lista).hidden = !usuarioActual;
+  const nuevo = $('.perfil-tarjeta.nueva', lista);
+  const perfiles = perfilesVisibles();
+  nuevo.hidden = !usuarioActual;
+  nuevo.querySelector('[data-campo="accion"]').textContent = perfiles.length
+    ? 'Añadir otro altar' : 'Crear mi primer altar';
+  $('#perfiles-vacio').hidden = !usuarioActual || perfiles.length > 0;
   $$('.perfil-tarjeta:not(.nueva)', lista).forEach(n => n.remove());
-  lista.prepend(...perfilesVisibles().map(p => {
+  lista.prepend(...perfiles.map(p => {
     const n = clon('t-perfil');
     n.href = '#/perfil/' + p.id;
     n.style.setProperty('--h', p.hue);

@@ -538,6 +538,7 @@ img { display: block; max-width: 100%; }
 [data-vista="explorar"] > .encabezado .antetitulo { grid-column: 1 / -1; margin-bottom: .5rem; }
 [data-vista="explorar"] > .encabezado h1 { grid-column: 1; margin: 0; }
 [data-vista="explorar"] > .encabezado > p:last-child { grid-column: 1; margin: .75rem 0 0; }
+.perfiles-vacio { max-width: 42rem; margin: 0 0 1.5rem; color: var(--ink-soft); }
 .perfiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
 .perfil-tarjeta {
   display: flex;

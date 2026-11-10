@@ -201,13 +201,14 @@
       <section class="encabezado">
         <p class="antetitulo">Altares</p>
         <h1>En memoria</h1>
-        <p>Cada perfil guarda los objetos, fechas y palabras de un/a hijo/a. Puedes crearlos y completarlos poco a poco, cuando lo sientas.</p>
+        <p>Crea tu altar y complétalo poco a poco, cuando lo sientas.</p>
       </section>
+      <p class="perfiles-vacio" id="perfiles-vacio" role="status" hidden>Aún no has creado un altar. Puedes empezar con su nombre y completar los demás detalles cuando quieras.</p>
       <div class="perfiles" id="perfiles">
         <!-- Las tarjetas se crean desde <template id="t-perfil"> -->
         <button class="perfil-tarjeta nueva" type="button" data-accion="nuevo-perfil">
           <span class="mas" aria-hidden="true">+</span>
-          <span>Añadir un perfil</span>
+          <span data-campo="accion">Crear mi primer altar</span>
         </button>
       </div>
     </section>
@@ -509,8 +510,8 @@
 
   <!-- ═══════════════════════════════════════════════════════════════════════
        PERFILES DE EJEMPLO
-       Son los que aparecen en la Colección. Si cambias algo aquí, la página
-       vuelve a cargar estos ejemplos (se pierde lo que se agregó desde el navegador).
+       Se muestran como referencia en Explorar y no aparecen en Mi altar.
+       Si cambias algo aquí, se actualizan los ejemplos de referencia.
 
        • Cada <article> es un perfil. Para crear otro, copia un <article> completo
          (desde <article hasta </article>) y cambia sus textos y su código.
